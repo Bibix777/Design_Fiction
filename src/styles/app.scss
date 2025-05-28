@@ -1,6 +1,25 @@
 @import 'utils/variables';
 @import 'components/type';
 
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.grid > * {
+    grid-column: 1 / -1;
+}
+
+
 body{
     background-color: black;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
 }

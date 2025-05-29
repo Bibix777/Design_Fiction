@@ -1,8 +1,14 @@
 body {
   color: white;
-   font-family: "PT Serif", serif;
-   font-size: 16px;
-   line-height: 1.6;
+  font-family: "PT Serif", serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: black;
+}
+
+p{
+  margin-top: 25.8px;
+  margin-bottom: 25.8px;
 }
 
 .title {
@@ -17,3 +23,15 @@ h1 {
   font-size: 25px;
 }
 
+.intro{
+  display: flex;
+  justify-content: center;
+}
+
+.introtext{
+  margin-top: 100px;
+}
+
+span{
+  color: #BBFF00;
+}

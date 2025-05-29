@@ -15,13 +15,26 @@ p{
   color: $c-alt;
 }
 
-h1 {
+.first_h1{
+  font-family: "Racing Sans One", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 75px;
+  line-height: 1;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+h2 {
   font-family: "PT Serif", serif;
   font-weight: 700;
   font-style: normal;
   color: white;
   font-size: 25px;
 }
+
+
 
 .intro{
   display: flex;

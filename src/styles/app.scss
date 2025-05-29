@@ -31,6 +31,7 @@
 }
 
 
+
 .End{
     display: flex;
     justify-content: center;
@@ -132,4 +133,47 @@ img{
 
 .links-center a:hover::after {
   width: 100%;
+}
+
+
+@media (min-width: 800px){
+
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(5,1fr);
+      column-gap: 30px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .blocHorizontal > section {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0; // chaque section garde sa taille
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // Ajoute d'autres styles selon ton design
+}
+    .blocHorizontal {
+    display: flex;
+    flex-direction: row;
+    width: 400vw;
+    transform: rotate(90deg) translateY(-100vh);
+    transform-origin: top left;
+}
+    .container {
+    width: 100vh;
+    height: 100vw;
+    transform: rotate(-90deg) translateX(-100vh);
+    transform-origin: top left;
+    overflow-x: hidden;
+
+    /* pour ie et mozilla */
+    -ms-overlow-style: none;
+    scrollbar-width: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
 }

@@ -35,16 +35,40 @@ h2 {
 }
 
 
-
-.intro{
-  display: flex;
-  justify-content: center;
-}
-
 .introtext{
   margin-top: 100px;
 }
 
 span{
   color: #BBFF00;
+}
+
+a, li, ul{
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  padding: 0;
+}
+
+.copyright{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 800px) {
+  
+  .first_h1{
+    font-size: 87px;
+  }
+
+  h2 {
+  font-size: 32px;
+  }
+
+  body{
+    font-size: 18px;
+  }
+
+  
 }

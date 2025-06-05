@@ -4,7 +4,14 @@ body {
   font-size: 16px;
   line-height: 1.6;
   background-color: black;
+   
+ 
   
+}
+
+html{
+  scroll-behavior: smooth;
+
 }
 
 p{
@@ -27,6 +34,7 @@ p{
   display: flex;
   text-align: center;
   justify-content: center;
+  margin-top: 100px;
 }
 
 h2 {
@@ -69,9 +77,34 @@ a, li, ul{
   font-size: 32px;
   }
 
+  * {
+  cursor: none !important;
+}
+
   body{
     font-size: 18px;
+    cursor: none;
+    
   }
 
   
+ 
+  
+}
+
+
+@media (min-width: 1200px) {
+  
+  body{
+    cursor: none;
+    font-size: 20px;
+  }
+  
+   .first_h1{
+    font-size: 103px;
+  }
+
+  h2 {
+  font-size: 35px;
+  }
 }

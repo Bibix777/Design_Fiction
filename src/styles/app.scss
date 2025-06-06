@@ -92,17 +92,15 @@ img{
 
 .images-accueil {
   position: relative;
-}
 
+  img {
+    transition: transform 0.3s ease;
+    filter: blur(2px);
 
-.images-accueil img{
-  transition: transform 0.3s ease; 
-  filter: blur(2px);
-  
-}
-
-.images-accueil img:hover {
-  transform: scale(1.05);    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 }
 
 
@@ -146,48 +144,41 @@ img{
   padding: 0;
   list-style: none;
   gap: 20px;
+
+  li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #BBFF00;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
 }
 
-.credit_nav{
+
+.credit_nav {
   position: fixed;
   right: 24px;
   bottom: 24px;
   z-index: 1000;
   padding: 10px 18px;
   border-radius: 20px;
-  z-index: 10;
   transition: color 0.3s ease;
 }
-
-
-
-
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  position: relative;
-  transition: color 0.3s ease;
-  
-}
-
-.nav-links li a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: #BBFF00;
-  transition: width 0.3s ease;
-}
-
-
-.nav-links li a:hover::after {
-  width: 100%;
-}
-
-
  
 
 

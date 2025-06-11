@@ -36,6 +36,7 @@ document.body.onpointermove = event => {
         // Joue le son uniquement pour les vraies transitions
         if (son) {
           son.currentTime = 0;
+          
           son.play();
         }
 

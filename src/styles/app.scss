@@ -1,6 +1,6 @@
 @import 'utils/variables';
 @import 'components/type';
-
+@import 'components/acceuil.scss';
  
 
 .grid{
@@ -104,29 +104,7 @@ img{
 }
 
 
-.number-Accueil{
-    position: absolute;
-    z-index: 5 ;
-    font-family: "Racing Sans One", sans-serif;
-    font-weight: 900;
-    font-size: 75px;
-    top: 38%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.8;
-  }
 
-  .number-partie{
-    position: absolute;
-    z-index: 5 ;
-    font-family: "Racing Sans One", sans-serif;
-    font-weight: 900;
-    font-size: 87px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.8;
-  }
 
 
 /* NAVIGATION */

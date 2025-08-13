@@ -1,9 +1,9 @@
 body {
-  color: white;
+  color: rgb(0, 0, 0);
   font-family: "PT Serif", serif;
   font-size: 16px;
   line-height: 1.6;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
    
  
   
@@ -31,9 +31,7 @@ p{
   font-style: italic;
   font-size: 75px;
   line-height: 1;
-  display: flex;
-  text-align: center;
-  justify-content: center;
+
   margin-top: 100px;
 }
 

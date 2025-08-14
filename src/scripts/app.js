@@ -90,3 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 800); // temps du fondu
   }, 2000); // délai avant de commencer à cacher le loader
 });
+
+
+/* CARROUSSEL CHATGPT */

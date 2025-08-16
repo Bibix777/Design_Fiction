@@ -7,5 +7,39 @@
     background-repeat: no-repeat; /* Pas de répétition */
   }
 
+.ligne-fond{
+  display: none;
+}
+
+
+  @media (min-width: 800px) {
+   
+  .ligne-fond{
+  display: block;
+}
+
+  svg {
+    position: fixed;
+    top: -50px;
+    left: 0;
+    height: 150px;
+    width: 100%;
+    z-index: 10;
+    overflow: visible;
+    z-index: -1;
+  }
+
+  path {
+    fill: none;
+    stroke: rgb(91, 166, 240);
+    stroke-width: 8px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 2000; /* Valeur initiale grande */
+    stroke-dashoffset: 2000;
+    transition: stroke-dashoffset 0.05s linear;
+   
+  }
 
  
+}

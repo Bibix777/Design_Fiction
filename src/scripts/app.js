@@ -3,18 +3,36 @@
 /*Base CODE PEN SOURIS modifié CHATGPT */
 
 const round = document.getElementById("round");
-document.body.onpointermove = event => {
-  const { clientX, clientY } = event;
-  
-  round.animate({
-    left: `${clientX}px`,
-    top: `${clientY}px`
-  }, { duration: 300, fill: "forwards"});
-  
+  const smallRound = document.getElementById("small_round");
 
-  
- 
-}
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+
+  let roundX = mouseX, roundY = mouseY;
+  let smallX = mouseX, smallY = mouseY;
+
+  document.body.addEventListener("pointermove", e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animate() {
+    // Petit rond : suit très vite
+    roundX += (mouseX - roundX) * 0.4;
+    roundY += (mouseY - roundY) * 0.4;
+    round.style.left = roundX + "px";
+    round.style.top = roundY + "px";
+
+    // Grand rond : suit presque collé
+    smallX += (roundX - smallX) * 0.3;
+    smallY += (roundY - smallY) * 0.3;
+    smallRound.style.left = smallX + "px";
+    smallRound.style.top = smallY + "px";
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
 
 
 /* PAGE TRANSITION vu en COURS modifié par CHATGPT*/
@@ -93,3 +111,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* CARROUSSEL CHATGPT */
+
+
+
+/* LIGNE DESCEND */
+
+   const path = document.querySelector('path');
+  const pathLength = path.getTotalLength();
+
+  // Met à jour les valeurs pour la longueur réelle du path
+  path.style.strokeDasharray = pathLength;
+  path.style.strokeDashoffset = pathLength;
+
+  window.addEventListener('scroll', () => {
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+    const progress = scrolled / scrollableHeight;
+
+    // Calcul du décalage pour dessiner progressivement la ligne
+    path.style.strokeDashoffset = pathLength * (1 - progress);
+  });

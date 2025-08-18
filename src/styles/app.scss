@@ -2,6 +2,7 @@
 @import 'components/type';
 @import 'utils/acceuil';
 @import 'utils/grid';
+@import 'utils/carrousel';
  
 
 .espace {
@@ -194,6 +195,15 @@ img{
     width: 100%;
     height: 2px; 
     background-color: #000000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+  }
+
+  .line02 {
+    width: 100%;
+    height: 2px; 
+    background-color: #ffffff;
     margin-top: 20px;
     margin-bottom: 20px;
     

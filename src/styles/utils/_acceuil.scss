@@ -12,7 +12,7 @@
 }
 
 
-  @media (min-width: 800px) {
+@media (min-width: 800px) {
    
   .ligne-fond{
   display: block;
@@ -29,17 +29,14 @@
     z-index: -1;
   }
 
-  path {
-    fill: none;
-    stroke: rgb(91, 166, 240);
-    stroke-width: 8px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 2000; /* Valeur initiale grande */
-    stroke-dashoffset: 2000;
-    transition: stroke-dashoffset 0.05s linear;
-   
-  }
+path {
+  fill: none;
+  stroke: rgb(91, 166, 240);
+  stroke-width: 8px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dashoffset 0.05s linear;
+}
 
  
 }

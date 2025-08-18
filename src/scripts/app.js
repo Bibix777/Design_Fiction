@@ -110,16 +110,49 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-/* CARROUSSEL CHATGPT */
+/* CARROUSSEL CodePen et CHATGPT */
 
+let index = 0;
+const move = document.getElementById("move");
+const items = document.querySelectorAll(".item");
+
+function slide() {
+  const carrousel = document.querySelector(".carrousel");
+  const itemWidth = items[0].offsetWidth;
+  const gap = 20; // marge horizontale définie en CSS
+  const step = itemWidth + gap;
+
+  // largeur totale visible
+  const containerWidth = carrousel.offsetWidth;
+
+  // calculer l’offset pour centrer l’item actif
+  const offset = (containerWidth - itemWidth) / 2;
+
+  move.style.transform = `translateX(${-index * step + offset}px)`;
+}
+
+document.getElementById("l").addEventListener("click", () => {
+  index = (index <= 0) ? items.length - 1 : index - 1;
+  slide();
+});
+
+document.getElementById("r").addEventListener("click", () => {
+  index = (index >= items.length - 1) ? 0 : index + 1;
+  slide();
+});
+
+window.addEventListener("resize", slide);
+
+// initialisation
+slide();
 
 
 /* LIGNE DESCEND */
 
-   const path = document.querySelector('path');
+  const path = document.querySelector('path');
   const pathLength = path.getTotalLength();
 
-  // Met à jour les valeurs pour la longueur réelle du path
+  // initialise avec la longueur réelle
   path.style.strokeDasharray = pathLength;
   path.style.strokeDashoffset = pathLength;
 
@@ -128,6 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrolled = window.scrollY;
     const progress = scrolled / scrollableHeight;
 
-    // Calcul du décalage pour dessiner progressivement la ligne
+    // dessine au fur et à mesure du scroll
     path.style.strokeDashoffset = pathLength * (1 - progress);
   });

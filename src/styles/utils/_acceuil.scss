@@ -7,6 +7,60 @@
     background-repeat: no-repeat; /* Pas de répétition */
   }
 
+
+.images-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.images-flex img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+  filter: grayscale(100%); /* ici sur l'image, pas sur le conteneur */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+@keyframes flotter {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* effet hover */
+.images-flex img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05) translateY(-8px) rotate(2deg);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+
+
+@media (max-width: 768px) {
+  .images-flex {
+    flex-direction: column;
+  }
+
+  .images-flex img {
+    max-width: 80%;   /* prend presque toute la largeur */
+  }
+}
+
+@media (max-width: 1200px) {
+  .images-flex img {
+  max-width: 300px;  /* limite la taille */
+  height: auto;
+  border-radius: 8px;
+}
+}
+
+
+
 .ligne-fond {
   display: none;
 }

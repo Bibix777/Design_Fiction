@@ -95,18 +95,17 @@ const round = document.getElementById("round");
 
 document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader");
-  const content = document.getElementById("content");
 
-  // Attendre 3 secondes même si la page est déjà prête
+  if (!loader) return;
+
   setTimeout(() => {
     loader.style.opacity = 0;
     loader.style.transition = "opacity 0.9s ease";
 
     setTimeout(() => {
       loader.style.display = "none";
-      content.style.display = "block";
-    }, 800); // temps du fondu
-  }, 2000); // délai avant de commencer à cacher le loader
+    }, 800);
+  }, 2000);
 });
 
 
@@ -115,52 +114,59 @@ document.addEventListener("DOMContentLoaded", () => {
 let index = 0;
 const move = document.getElementById("move");
 const items = document.querySelectorAll(".item");
+const leftBtn = document.getElementById("l");
+const rightBtn = document.getElementById("r");
+const carrousel = document.querySelector(".carrousel");
 
-function slide() {
-  const carrousel = document.querySelector(".carrousel");
-  const itemWidth = items[0].offsetWidth;
-  const gap = 20; // marge horizontale définie en CSS
-  const step = itemWidth + gap;
+// ⚡ Si le carrousel n'existe pas sur la page, on arrête tout de suite
+if (carrousel && move && items.length > 0 && leftBtn && rightBtn) {
+  
+  function slide() {
+    const itemWidth = items[0].offsetWidth;
+    const gap = 20; // marge horizontale définie en CSS
+    const step = itemWidth + gap;
 
-  // largeur totale visible
-  const containerWidth = carrousel.offsetWidth;
+    // largeur totale visible
+    const containerWidth = carrousel.offsetWidth;
 
-  // calculer l’offset pour centrer l’item actif
-  const offset = (containerWidth - itemWidth) / 2;
+    // calculer l’offset pour centrer l’item actif
+    const offset = (containerWidth - itemWidth) / 2;
 
-  move.style.transform = `translateX(${-index * step + offset}px)`;
+    move.style.transform = `translateX(${-index * step + offset}px)`;
+  }
+
+  leftBtn.addEventListener("click", () => {
+    index = (index <= 0) ? items.length - 1 : index - 1;
+    slide();
+  });
+
+  rightBtn.addEventListener("click", () => {
+    index = (index >= items.length - 1) ? 0 : index + 1;
+    slide();
+  });
+
+  window.addEventListener("resize", slide);
+
+  // initialisation
+  slide();
 }
-
-document.getElementById("l").addEventListener("click", () => {
-  index = (index <= 0) ? items.length - 1 : index - 1;
-  slide();
-});
-
-document.getElementById("r").addEventListener("click", () => {
-  index = (index >= items.length - 1) ? 0 : index + 1;
-  slide();
-});
-
-window.addEventListener("resize", slide);
-
-// initialisation
-slide();
 
 
 /* LIGNE DESCEND */
+document.addEventListener("DOMContentLoaded", () => {
+  const path = document.querySelector('.ligne-fond path');
+  if (!path) return;
 
-  const path = document.querySelector('path');
   const pathLength = path.getTotalLength();
-
-  // initialise avec la longueur réelle
   path.style.strokeDasharray = pathLength;
   path.style.strokeDashoffset = pathLength;
 
   window.addEventListener('scroll', () => {
     const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrolled = window.scrollY;
-    const progress = scrolled / scrollableHeight;
-
-    // dessine au fur et à mesure du scroll
+    const progress = scrollableHeight > 0 ? scrolled / scrollableHeight : 0;
     path.style.strokeDashoffset = pathLength * (1 - progress);
   });
+});
+
+

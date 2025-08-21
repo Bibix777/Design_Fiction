@@ -170,3 +170,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+/* MUSIQUE */
+
+  const btn = document.getElementById("start");
+  const intro = document.getElementById("intro");
+  const audio = document.getElementById("musique");
+
+  btn.addEventListener("click", () => {
+    audio.play(); // ✅ fonctionne car clic utilisateur
+    intro.style.display = "none"; // cache l’écran d’intro
+  });

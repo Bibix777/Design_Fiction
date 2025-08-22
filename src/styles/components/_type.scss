@@ -84,6 +84,20 @@ a, li, ul{
   color: white;
 }
 
+ .number-partie {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 400;
+    font-size: 100px;
+    color: rgb(255, 255, 255);
+    pointer-events: none; 
+    z-index: 10;
+    text-align: center;
+  }
+
 @media (min-width: 800px) {
   
   .first_h1{

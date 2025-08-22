@@ -172,11 +172,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* MUSIQUE */
 
-  const btn = document.getElementById("start");
-  const intro = document.getElementById("intro");
-  const audio = document.getElementById("musique");
+document.addEventListener("DOMContentLoaded", () => {
+  const audioEl   = document.getElementById("musique");
+  const intro     = document.getElementById("intro");
+  const startBtn  = document.getElementById("start");
+  const toggleBtn = document.getElementById("toggleMusic");
+  const icon      = document.getElementById("musicIcon");
 
-  btn.addEventListener("click", () => {
-    audio.play(); // ✅ fonctionne car clic utilisateur
-    intro.style.display = "none"; // cache l’écran d’intro
+  // Démarrage via l'écran d'intro
+  if (startBtn) {
+    startBtn.addEventListener("click", () => {
+      audioEl.play();
+      if (intro) intro.style.display = "none";
+      if (icon) icon.src = "assets/images/musicOn.svg";
+      toggleBtn.classList.remove("off"); // supprime la barre au départ
+    });
+  }
+
+  // BOUTON MUSIQUE : coupe / relance
+  toggleBtn.addEventListener("click", () => {
+    if (audioEl.paused) {
+      audioEl.play();
+      if (icon) icon.src = "assets/images/musicOn.svg";
+      toggleBtn.classList.remove("off"); // supprime la barre
+    } else {
+      audioEl.pause();
+      if (icon) icon.src = "assets/images/musicCut.svg";
+      toggleBtn.classList.add("off");    // ajoute la barre
+    }
   });
+});

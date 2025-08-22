@@ -110,14 +110,41 @@
 
 
 
-.Cut-music{
+.Cut-music {
   position: fixed;
   top: 0;
   left: 0;
   width: 100px;
   height: 100px;
-  background: transparent;
+  background-color: transparent; /* on garde le bouton transparent */
   border: none;
+  z-index: 100;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Cut-music img {
+  width: 50%;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* zoom normal au hover */
+.Cut-music:hover img {
+  transform: scale(1.2);
+}
+
+.Cut-music.off::after {
+  content: "";
+  position: absolute;
+  width: 70%;       /* longueur de la barre */
+  height: 4px;      /* épaisseur */
+  background: red;  /* couleur de la barre */
+  transform: rotate(-45deg);
+  top: 50%;
+  left: 15%;
 }
 
 
